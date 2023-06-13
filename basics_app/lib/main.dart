@@ -11,23 +11,34 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.blue),
-      home: const HomePage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  bool buttonClick = false;
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
       appBar: AppBar(),
       backgroundColor: Colors.grey,
       body: Center(
-        child: Text("hello world"),
-      ),
+          child: ElevatedButton(
+        onPressed: () {
+          buttonClick = true;
+          print(buttonClick);
+        },
+        child: Text("click"),
+      )),
     );
   }
 }
