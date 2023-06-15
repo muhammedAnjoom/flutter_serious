@@ -1,3 +1,4 @@
+import 'package:basics_app/text_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,28 +18,54 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final textController = TextEditingController();
+
+  String value = "no value";
+
   bool buttonClick = false;
+  int count = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(25),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  count++;
+                });
+              },
+              child: const Icon(Icons.add),
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  count--;
+                });
+              },
+              child: const Icon(
+                Icons.minimize,
+                size: 20,
+              ),
+            )
+          ],
+        ),
       ),
-      appBar: AppBar(),
-      backgroundColor: Colors.grey,
-      body: Center(
-          child: ElevatedButton(
-        onPressed: () {
-          buttonClick = true;
-          print(buttonClick);
-        },
-        child: Text("click"),
-      )),
+      body: TextScreen(
+        count: count,
+      ),
     );
   }
 }
