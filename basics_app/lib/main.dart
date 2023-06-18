@@ -1,8 +1,12 @@
 import 'package:basics_app/home_screen.dart';
 import 'package:basics_app/screen_two.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+
+
+main() async {
+ WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -11,9 +15,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.blue),
-      home: const HomeScreen(),
+      home: HomeScreen(),
       // routes: {
       //   'screen_2':(context)=>const ScreenTwo()
       // },
