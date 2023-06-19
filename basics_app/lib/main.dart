@@ -1,12 +1,12 @@
-import 'package:basics_app/home_screen.dart';
-import 'package:basics_app/screen_two.dart';
+import 'package:basics_app/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
+late SharedPreferences sharedPreferences;
 
 main() async {
  WidgetsFlutterBinding.ensureInitialized();
+  sharedPreferences = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
 
@@ -18,10 +18,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.blue),
-      home: HomeScreen(),
-      // routes: {
-      //   'screen_2':(context)=>const ScreenTwo()
-      // },
+      home: const SplahScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

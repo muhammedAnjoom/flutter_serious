@@ -1,18 +1,18 @@
+import 'package:basics_app/main.dart';
 import 'package:basics_app/screen_two.dart';
+import 'package:basics_app/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({
     super.key,
   });
   final _textController = TextEditingController();
+  final _textConifromController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    getSavedData(context);
     return Scaffold(
-        appBar: AppBar(),
         body: SafeArea(
           child: SizedBox(
             width: double.infinity,
@@ -27,6 +27,23 @@ class HomeScreen extends StatelessWidget {
                   child: TextFormField(
                     controller: _textController,
                     decoration: const InputDecoration(
+                      hintText: "userName",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  child: TextFormField(
+                    controller: _textConifromController,
+                    decoration: const InputDecoration(
+                      hintText: "conform",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                     ),
@@ -34,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    saveDataToStorge();
+                    saveDataToStorge(context);
                   },
                   child: const Text(
                     "login",
@@ -46,19 +63,18 @@ class HomeScreen extends StatelessWidget {
         ));
   }
 
-  Future<void> saveDataToStorge() async {
-    final sharedPerfs = await SharedPreferences.getInstance();
-    // save value using sharedPreferences
-    await sharedPerfs.setString('saved_value', _textController.text);
-  }
-
-  Future<void> getSavedData(BuildContext context) async {
-    final sharedPrefs = await SharedPreferences.getInstance();
-    final savedValue = sharedPrefs.getString('saved_value');
-    if (savedValue != null) {
-      // ignore: use_build_context_synchronously
+  Future<void> saveDataToStorge(context) async {
+    // check data
+    if (_textController.text == _textConifromController.text) {
+      // save value using sharedPreferences
+      await sharedPreferences.setString('saved_value', _textController.text);
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (ctx) => ScreenTwo()),
+        (route) => false,
+      );
+    } else {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (ctx) => ScreenTwo()));
+          .push(MaterialPageRoute(builder: (ctx) => const SplahScreen()));
     }
   }
 }
