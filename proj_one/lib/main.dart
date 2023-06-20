@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proj_one/view/login_screen.dart';
 
 import 'view/landing_screen.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const LandingScreen(),
+      home: const LoginScreen(),
     );
   }
 }
