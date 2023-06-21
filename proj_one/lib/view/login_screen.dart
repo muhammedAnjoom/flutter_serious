@@ -50,7 +50,6 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 30),
                   child: SizedBox(
-                    
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -96,7 +95,10 @@ class LoginScreen extends StatelessWidget {
                             fillColor: Colors.white,
                             focusColor: Color(0xffb299df),
                             hintStyle: TextStyle(fontSize: 18),
-                            suffixIcon: Icon(Icons.visibility_off),
+                            suffixIcon: Icon(
+                              Icons.visibility_off,
+                              color: Colors.grey,
+                            ),
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10))),
@@ -106,7 +108,9 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 100,),
+                        SizedBox(
+                          height: 100,
+                        ),
                         Container(
                           height: 55,
                           width: double.infinity,
