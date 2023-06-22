@@ -1,11 +1,23 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:proj_one/style.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _email = TextEditingController();
+
+  final _password = TextEditingController();
+
+  final _fromKey = GlobalKey<FormState>();
+  bool _validation = false;
+  bool _visibility = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,84 +62,123 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 30),
                   child: SizedBox(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Email",
-                          style: gSubFont.copyWith(
-                            fontSize: 18,
+                    child: Form(
+                      key: _fromKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Email",
+                            style: gSubFont.copyWith(
+                              fontSize: 18,
+                            ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          style: const TextStyle(fontSize: 18),
-                          decoration: const InputDecoration(
-                            hintText: "Your email",
-                            fillColor: Colors.white,
-                            focusColor: Color(0xffb299df),
-                            hintStyle: TextStyle(fontSize: 18),
-                            border: OutlineInputBorder(
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            style: const TextStyle(fontSize: 18),
+                            controller: _email,
+                            validator: (value) {
+                              setState(() {
+                                _validation =
+                                    EmailValidator.validate(_email.text);
+                              });
+
+                              if (value == null || value.isEmpty) {
+                                return 'must enter value';
+                              } else if (!_validation) {
+                                return 'email invalid';
+                              } else {
+                                return null;
+                              }
+                            },
+                            decoration: const InputDecoration(
+                              hintText: "Your email",
+                              fillColor: Colors.white,
+                              focusColor: Color(0xffb299df),
+                              hintStyle: TextStyle(fontSize: 18),
+                              border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
+                              focusedBorder: OutlineInputBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                    BorderRadius.all(Radius.circular(10)),
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Password",
-                          style: gSubFont.copyWith(fontSize: 18),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          style: const TextStyle(fontSize: 18),
-                          decoration: const InputDecoration(
-                            hintText: "Password",
-                            fillColor: Colors.white,
-                            focusColor: Color(0xffb299df),
-                            hintStyle: TextStyle(fontSize: 18),
-                            suffixIcon: Icon(
-                              Icons.visibility_off,
-                              color: Colors.grey,
-                            ),
-                            border: OutlineInputBorder(
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Password",
+                            style: gSubFont.copyWith(fontSize: 18),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            style: const TextStyle(fontSize: 18),
+                            controller: _password,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'must enter value';
+                              } else {
+                                null;
+                              }
+                            },
+                            obscureText: !_visibility,
+                            decoration: InputDecoration(
+                              hintText: "Password",
+                              fillColor: Colors.white,
+                              focusColor: const Color(0xffb299df),
+                              hintStyle: const TextStyle(fontSize: 18),
+                              suffixIcon: IconButton(
+                                icon: Icon(_visibility
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                                onPressed: () {
+                                  setState(() {
+                                    _visibility = !_visibility;
+                                  });
+                                },
+                                color: Colors.grey,
+                              ),
+                              border: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
+                              focusedBorder: const OutlineInputBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                    BorderRadius.all(Radius.circular(10)),
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 100,
-                        ),
-                        Container(
-                          height: 55,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: buttonColor.withOpacity(0.8),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
+                          const SizedBox(
+                            height: 100,
                           ),
-                          child: Center(
-                            child: Text(
-                              "Sign in",
-                              style: gSubFont.copyWith(
-                                  color: Colors.white, fontSize: 18),
+                          GestureDetector(
+                            onTap: () {
+                              _fromKey.currentState!.validate();
+                            },
+                            child: Container(
+                              height: 55,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: buttonColor.withOpacity(0.8),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(10)),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Sign in",
+                                  style: gSubFont.copyWith(
+                                      color: Colors.white, fontSize: 18),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 )
@@ -138,4 +189,6 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+
+  Future<void>? saveDataToStroge() {}
 }
