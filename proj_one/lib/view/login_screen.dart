@@ -1,7 +1,10 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:proj_one/main.dart';
 import 'package:proj_one/style.dart';
+import 'package:proj_one/view/home_scren.dart';
+import 'package:proj_one/view/landing_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
@@ -11,9 +14,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _email = TextEditingController();
+  final _emailController = TextEditingController();
 
-  final _password = TextEditingController();
+  final _passwordController = TextEditingController();
 
   final _fromKey = GlobalKey<FormState>();
   bool _validation = false;
@@ -32,9 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SvgPicture.asset(
-                  "assets/icon/back-svgrepo-com.svg",
-                  width: 45,
+                GestureDetector(
+                  onTap: () => Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (ctx) => const LandingScreen()),
+                      (route) => false),
+                  child: SvgPicture.asset(
+                    "assets/icon/back-svgrepo-com.svg",
+                    width: 45,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -78,11 +86,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           TextFormField(
                             style: const TextStyle(fontSize: 18),
-                            controller: _email,
+                            controller: _emailController,
                             validator: (value) {
                               setState(() {
-                                _validation =
-                                    EmailValidator.validate(_email.text);
+                                _validation = EmailValidator.validate(
+                                    _emailController.text);
                               });
 
                               if (value == null || value.isEmpty) {
@@ -119,13 +127,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           TextFormField(
                             style: const TextStyle(fontSize: 18),
-                            controller: _password,
+                            controller: _passwordController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'must enter value';
                               } else {
                                 null;
                               }
+                              return null;
                             },
                             obscureText: !_visibility,
                             decoration: InputDecoration(
@@ -158,7 +167,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              _fromKey.currentState!.validate();
+                              _fromKey.currentState!.validate()
+                                  ? saveDataToStroge(context)
+                                  : null;
                             },
                             child: Container(
                               height: 55,
@@ -190,5 +201,11 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Future<void>? saveDataToStroge() {}
+  Future<void>? saveDataToStroge(context) async {
+    final _email = _emailController.text;
+    final _password = _passwordController.text;
+    await sharedPreferences.setString('email', _email);
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (ctx) => HomeScreen()), (route) => false);
+  }
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:proj_one/view/home_scren.dart';
 import 'package:proj_one/view/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'view/landing_screen.dart';
-
-void main() {
+late SharedPreferences sharedPreferences;
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  sharedPreferences =await SharedPreferences.getInstance(); 
   runApp(const MyApp());
 }
 
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home:  LoginScreen(),
+      home:const LandingScreen(),
     );
   }
 }

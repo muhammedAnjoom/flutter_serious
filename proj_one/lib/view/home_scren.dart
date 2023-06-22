@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:proj_one/main.dart';
 import 'package:proj_one/style.dart';
+import 'package:proj_one/view/login_screen.dart';
 
 import '../core.dart';
 
@@ -19,11 +21,24 @@ class HomeScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 15),
-                child: Center(
-                  child: Text(
-                    "Message",
-                    style: gMainFont.copyWith(fontSize: 26),
-                  ),
+                child: Row(
+                  children: [
+                    Text(
+                      "Message",
+                      style: gMainFont.copyWith(fontSize: 26),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () async {
+                        await sharedPreferences.remove('email');
+                        // ignore: use_build_context_synchronously
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(builder: (ctx) => LoginScreen()),
+                            (route) => false);
+                      },
+                      icon: const Icon(Icons.logout),
+                    )
+                  ],
                 ),
               ),
               const SizedBox(
