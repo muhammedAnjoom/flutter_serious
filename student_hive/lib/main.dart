@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student_hive/screen/student_details.dart';
 
 import 'screen/home_screen.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: StudentDetails(),
     );
   }
 }
