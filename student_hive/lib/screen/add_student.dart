@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:student_hive/model/student_model.dart';
+import 'package:student_hive/screen/home_screen.dart';
+
+import '../functions/db_functions.dart';
 
 class AddStudent extends StatelessWidget {
   AddStudent({super.key});
 
+  final student = Student();
+
   ValueNotifier<bool> validation = ValueNotifier(false);
   final _fromKey = GlobalKey<FormState>();
+
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _branchController = TextEditingController();
+  final TextEditingController _markController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +105,7 @@ class AddStudent extends StatelessWidget {
                               height: 15,
                             ),
                             TextFormField(
+                              controller: _nameController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "value not empty";
@@ -132,6 +144,7 @@ class AddStudent extends StatelessWidget {
                               height: 15,
                             ),
                             TextFormField(
+                              controller: _ageController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "value not empty";
@@ -171,6 +184,7 @@ class AddStudent extends StatelessWidget {
                               height: 15,
                             ),
                             TextFormField(
+                              controller: _branchController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "value not empty";
@@ -209,6 +223,7 @@ class AddStudent extends StatelessWidget {
                               height: 15,
                             ),
                             TextFormField(
+                              controller: _markController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "value not empty";
@@ -241,9 +256,29 @@ class AddStudent extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                _fromKey.currentState!.validate()
-                                    ? "correct"
-                                    : null;
+                                if (_fromKey.currentState!.validate()) {
+                                  final name = _nameController.text;
+                                  final age = _ageController.text;
+                                  final branch = _branchController.text;
+                                  final mark = _markController.text;
+                                  student.AddStudentData(StudentModel(
+                                    id: DateTime.now()
+                                        .millisecondsSinceEpoch
+                                        .toString(),
+                                    name: name,
+                                    age: age,
+                                    branch: branch,
+                                    mark: mark,
+                                  ));
+                                  print("student model create");
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                      MaterialPageRoute(
+                                        builder: (ctx) => HomeScreen(),
+                                      ),
+                                      (route) => false);
+                                } else {
+                                  null;
+                                }
                               },
                               child: Container(
                                 padding:

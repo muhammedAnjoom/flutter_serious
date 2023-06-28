@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:student_hive/model/student_model.dart';
 
 class StudentDetails extends StatelessWidget {
-  const StudentDetails({super.key});
+  StudentDetails({super.key, required this.student});
+  final StudentModel student;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class StudentDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pop(),
                     icon: const Icon(Icons.arrow_back_ios_new),
                   ),
                   const Text(
@@ -45,8 +47,8 @@ class StudentDetails extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Text(
-                        "Ragip Diler",
+                      Text(
+                        student.name,
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
@@ -65,7 +67,8 @@ class StudentDetails extends StatelessWidget {
                 height: 30,
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 30),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Column(
                   children: [
                     Row(
@@ -81,19 +84,19 @@ class StudentDetails extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               "Username",
                               style: TextStyle(color: Colors.grey),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Text(
-                              "ragip",
-                              style: TextStyle(fontSize: 20),
+                              student.name,
+                              style: const TextStyle(fontSize: 20),
                             ),
-                            Divider()
+                            const Divider()
                           ],
                         ),
                       ],
@@ -114,19 +117,19 @@ class StudentDetails extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               "Age",
                               style: TextStyle(color: Colors.grey),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Text(
-                              "20",
-                              style: TextStyle(fontSize: 20),
+                              student.age,
+                              style: const TextStyle(fontSize: 20),
                             ),
-                            Divider()
+                            const Divider()
                           ],
                         ),
                       ],
@@ -147,19 +150,19 @@ class StudentDetails extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               "Branch",
                               style: TextStyle(color: Colors.grey),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Text(
-                              "BCA",
-                              style: TextStyle(fontSize: 20),
+                              student.branch,
+                              style: const TextStyle(fontSize: 20),
                             ),
-                            Divider()
+                            const Divider()
                           ],
                         ),
                       ],
@@ -180,19 +183,19 @@ class StudentDetails extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               "Marek",
                               style: TextStyle(color: Colors.grey),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Text(
-                              "90",
-                              style: TextStyle(fontSize: 20),
+                              student.mark,
+                              style: const TextStyle(fontSize: 20),
                             ),
-                            Divider()
+                            const Divider()
                           ],
                         ),
                       ],

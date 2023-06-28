@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-
+import 'package:student_hive/functions/db_functions.dart';
+import 'package:student_hive/screen/add_student.dart';
+import 'package:student_hive/screen/student_details.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final studentFuction = Student();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (ctx) => AddStudent()),
+        ),
         child: const Icon(Icons.add),
       ),
       body: SafeArea(
@@ -67,23 +73,39 @@ class HomeScreen extends StatelessWidget {
                 height: 20,
               ),
               Expanded(
-                child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text("Stuent $index"),
-                      subtitle: const Text("course"),
-                      trailing: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.delete,
-                          color: Colors.red,
-                        ),
-                      ),
-                    );
-                  },
-                  separatorBuilder: (context, index) => Divider(),
-                  itemCount: 10,
-                ),
+                child: ValueListenableBuilder(
+                    valueListenable: studentValueNotifier,
+                    builder: (context, studentValue, _) {
+                      studentFuction.getStudent();
+                      return ListView.separated(
+                        itemBuilder: (context, index) {
+                          final student = studentValue[index];
+                          return GestureDetector(
+                            onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (ctx) => StudentDetails(
+                                  student: student,
+                                ),
+                              ),
+                            ),
+                            child: ListTile(
+                              title: Text(student.name),
+                              subtitle: Text(student.branch),
+                              trailing: IconButton(
+                                onPressed: () =>
+                                    studentFuction.deleteStudent(student.id),
+                                icon: const Icon(
+                                  Icons.delete,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        separatorBuilder: (context, index) => Divider(),
+                        itemCount: studentValue.length,
+                      );
+                    }),
               )
             ],
           ),
