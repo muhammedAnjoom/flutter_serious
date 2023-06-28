@@ -27,4 +27,17 @@ class Student {
     print("$id remove");
     await getStudent();
   }
+
+  Future<void> messageToStudent({
+    context,
+    required String message,
+    required Color color,
+  }) async {
+    final snakbar = SnackBar(
+      content: Text(message),
+      behavior: SnackBarBehavior.fixed,
+      backgroundColor: color,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snakbar);
+  }
 }

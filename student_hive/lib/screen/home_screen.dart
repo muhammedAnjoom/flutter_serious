@@ -8,15 +8,11 @@ class HomeScreen extends StatelessWidget {
 
   final studentFuction = Student();
 
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (ctx) => AddStudent()),
-        ),
-        child: const Icon(Icons.add),
-      ),
+      key: _scaffoldKey,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -92,8 +88,45 @@ class HomeScreen extends StatelessWidget {
                               title: Text(student.name),
                               subtitle: Text(student.branch),
                               trailing: IconButton(
-                                onPressed: () =>
-                                    studentFuction.deleteStudent(student.id),
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (ctx) => AlertDialog(
+                                      title: Text("Delete"),
+                                      content: const Text(
+                                          "you must want delete student"),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(ctx).pop();
+                                          },
+                                          child: const Text(
+                                            "no",
+                                            style: TextStyle(color: Colors.red),
+                                          ),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            studentFuction
+                                                .deleteStudent(student.id);
+                                            Navigator.of(ctx).pop();
+                                            studentFuction.messageToStudent(
+                                              message:
+                                                  "${student.name} is successfull delete",
+                                              color: Colors.red,
+                                              context: context
+                                            );
+                                          },
+                                          child: const Text(
+                                            "yes",
+                                            style:
+                                                TextStyle(color: Colors.green),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
                                 icon: const Icon(
                                   Icons.delete,
                                   color: Colors.red,
@@ -110,6 +143,15 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(
+              builder: (ctx) => AddStudent(
+                    scaffoldContext: _scaffoldKey.currentContext,
+                  )),
+        ),
+        child: const Icon(Icons.add),
       ),
     );
   }

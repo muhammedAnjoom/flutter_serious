@@ -7,8 +7,9 @@ import 'package:student_hive/screen/home_screen.dart';
 import '../functions/db_functions.dart';
 
 class AddStudent extends StatelessWidget {
-  AddStudent({super.key});
+  AddStudent({super.key, this.scaffoldContext});
 
+  final scaffoldContext;
   final student = Student();
 
   ValueNotifier<bool> validation = ValueNotifier(false);
@@ -270,12 +271,17 @@ class AddStudent extends StatelessWidget {
                                     branch: branch,
                                     mark: mark,
                                   ));
-                                  print("student model create");
+                                  student.messageToStudent(
+                                    message: "successfully add student",
+                                    color: Colors.green,
+                                    context: scaffoldContext,
+                                  );
                                   Navigator.of(context).pushAndRemoveUntil(
                                       MaterialPageRoute(
-                                        builder: (ctx) => HomeScreen(),
-                                      ),
-                                      (route) => false);
+                                    builder: (ctx) {
+                                      return HomeScreen();
+                                    },
+                                  ), (route) => false);
                                 } else {
                                   null;
                                 }
