@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:student_hive/model/student_model.dart';
 
 const STUDENT_DB = 'student_db';
+bool checkEditStudent = false;
 ValueNotifier<List<StudentModel>> studentValueNotifier = ValueNotifier([]);
 
 class Student {
@@ -26,6 +27,12 @@ class Student {
     await studentDB.delete(id);
     print("$id remove");
     await getStudent();
+  }
+
+  Future<dynamic> updateStudent(StudentModel value,id)async{
+     final studentDB = await Hive.openBox<StudentModel>(STUDENT_DB);
+      await studentDB.put(id, value);
+      await getStudent();
   }
 
   Future<void> messageToStudent({

@@ -3,22 +3,48 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:student_hive/model/student_model.dart';
 import 'package:student_hive/screen/home_screen.dart';
+import 'package:student_hive/screen/student_details.dart';
 
 import '../functions/db_functions.dart';
 
-class AddStudent extends StatelessWidget {
-  AddStudent({super.key, this.scaffoldContext});
-
+class AddStudent extends StatefulWidget {
+  AddStudent({super.key, this.scaffoldContext, this.studentDb});
+  final StudentModel? studentDb;
   final scaffoldContext;
+
+  @override
+  State<AddStudent> createState() => _AddStudentState();
+}
+
+class _AddStudentState extends State<AddStudent> {
   final student = Student();
 
   ValueNotifier<bool> validation = ValueNotifier(false);
+
   final _fromKey = GlobalKey<FormState>();
 
   final TextEditingController _nameController = TextEditingController();
+
   final TextEditingController _ageController = TextEditingController();
+
   final TextEditingController _branchController = TextEditingController();
+
   final TextEditingController _markController = TextEditingController();
+
+  @override
+  void initState() {
+    if (checkEditStudent == true) {
+      setState(() {
+        _nameController.text = widget.studentDb!.name;
+        _ageController.text = widget.studentDb!.age;
+        _branchController.text = widget.studentDb!.branch;
+        _markController.text = widget.studentDb!.mark;
+      });
+    } else {
+      null;
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +61,13 @@ class AddStudent extends StatelessWidget {
                 // mainAxisSize: MainAxisSize.max,
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (checkEditStudent == true) {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (ctx) =>
+                                StudentDetails(student: widget.studentDb!)));
+                      }
+                    },
                     icon: const Icon(Icons.arrow_back_ios_new_sharp),
                   ),
                   const Padding(
@@ -262,26 +294,48 @@ class AddStudent extends StatelessWidget {
                                   final age = _ageController.text;
                                   final branch = _branchController.text;
                                   final mark = _markController.text;
-                                  student.AddStudentData(StudentModel(
-                                    id: DateTime.now()
-                                        .millisecondsSinceEpoch
-                                        .toString(),
-                                    name: name,
-                                    age: age,
-                                    branch: branch,
-                                    mark: mark,
-                                  ));
-                                  student.messageToStudent(
-                                    message: "successfully add student",
-                                    color: Colors.green,
-                                    context: scaffoldContext,
-                                  );
-                                  Navigator.of(context).pushAndRemoveUntil(
+
+                                  if (checkEditStudent == false) {
+                                    student.AddStudentData(StudentModel(
+                                      id: DateTime.now()
+                                          .millisecondsSinceEpoch
+                                          .toString(),
+                                      name: name,
+                                      age: age,
+                                      branch: branch,
+                                      mark: mark,
+                                    ));
+                                    student.messageToStudent(
+                                      message: "successfully add student",
+                                      color: Colors.green,
+                                      context: widget.scaffoldContext,
+                                    );
+                                    Navigator.of(context).pushAndRemoveUntil(
+                                        MaterialPageRoute(
+                                      builder: (ctx) {
+                                        return HomeScreen();
+                                      },
+                                    ), (route) => false);
+                                  } else {
+                                  final studnetdb=  student.updateStudent(
+                                      StudentModel(
+                                        id: widget.studentDb!.id,
+                                        name: name,
+                                        age: age,
+                                        branch: branch,
+                                        mark: mark,
+                                      ),
+                                      widget.studentDb!.id,
+                                    );
+                                    print(studnetdb);
+                                    Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
-                                    builder: (ctx) {
-                                      return HomeScreen();
-                                    },
-                                  ), (route) => false);
+                                        builder: (ctx) => StudentDetails(
+                                          student: widget.studentDb!,
+                                        ),
+                                      ),
+                                    );
+                                  }
                                 } else {
                                   null;
                                 }
