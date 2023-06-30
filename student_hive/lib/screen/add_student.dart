@@ -288,7 +288,7 @@ class _AddStudentState extends State<AddStudent> {
                               height: 30,
                             ),
                             GestureDetector(
-                              onTap: () {
+                              onTap: () async {
                                 if (_fromKey.currentState!.validate()) {
                                   final name = _nameController.text;
                                   final age = _ageController.text;
@@ -317,7 +317,7 @@ class _AddStudentState extends State<AddStudent> {
                                       },
                                     ), (route) => false);
                                   } else {
-                                  final studnetdb=  student.updateStudent(
+                                    student.updateStudent(
                                       StudentModel(
                                         id: widget.studentDb!.id,
                                         name: name,
@@ -327,11 +327,16 @@ class _AddStudentState extends State<AddStudent> {
                                       ),
                                       widget.studentDb!.id,
                                     );
-                                    print(studnetdb);
+                                    final newStudent = await student
+                                        .refresheData(widget.studentDb!.id);
+                                    student.messageToStudent(
+                                        message: "student update successfully ",
+                                        color: Colors.green,
+                                        context: context);
                                     Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                         builder: (ctx) => StudentDetails(
-                                          student: widget.studentDb!,
+                                          student: newStudent!,
                                         ),
                                       ),
                                     );

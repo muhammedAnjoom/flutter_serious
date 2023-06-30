@@ -22,6 +22,13 @@ class Student {
     studentValueNotifier.notifyListeners();
   }
 
+  Future<StudentModel?> refresheData(id) async {
+    final studentDB = await Hive.openBox<StudentModel>(STUDENT_DB);
+    final data = await studentDB.get(id);
+    getStudent();
+    return data;
+  }
+
   Future<void> deleteStudent(id) async {
     final studentDB = await Hive.openBox<StudentModel>(STUDENT_DB);
     await studentDB.delete(id);
@@ -29,10 +36,11 @@ class Student {
     await getStudent();
   }
 
-  Future<dynamic> updateStudent(StudentModel value,id)async{
-     final studentDB = await Hive.openBox<StudentModel>(STUDENT_DB);
-      await studentDB.put(id, value);
-      await getStudent();
+  Future<dynamic> updateStudent(StudentModel value, id) async {
+    final studentDB = await Hive.openBox<StudentModel>(STUDENT_DB);
+    await studentDB.put(id, value);
+    checkEditStudent = false;
+    await getStudent();
   }
 
   Future<void> messageToStudent({
