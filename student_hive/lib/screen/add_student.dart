@@ -8,9 +8,11 @@ import 'package:student_hive/screen/student_details.dart';
 import '../functions/db_functions.dart';
 
 class AddStudent extends StatefulWidget {
-  AddStudent({super.key, this.scaffoldContext, this.studentDb});
+  AddStudent(
+      {super.key, this.scaffoldContext, this.studentDb, required this.heading});
   final StudentModel? studentDb;
   final scaffoldContext;
+  final String heading;
 
   @override
   State<AddStudent> createState() => _AddStudentState();
@@ -66,17 +68,19 @@ class _AddStudentState extends State<AddStudent> {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (ctx) =>
                                 StudentDetails(student: widget.studentDb!)));
+                      } else {
+                        Navigator.of(context).pop();
                       }
                     },
                     icon: const Icon(Icons.arrow_back_ios_new_sharp),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 32.0),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 32.0),
                     child: Text(
-                      "Add Student",
+                      widget.heading,
                       textAlign: TextAlign.center,
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(

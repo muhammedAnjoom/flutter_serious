@@ -63,6 +63,7 @@ class StudentDetails extends StatelessWidget {
                               Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
                                       builder: (ctx) => AddStudent(
+                                        heading: "Update student",
                                         studentDb: student,
                                       )));
                             },
