@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     showDialog(
                                       context: context,
                                       builder: (ctx) => AlertDialog(
-                                        title: Text("Delete"),
+                                        title:  Text("Delete ${student.name}"),
                                         content: const Text(
                                             "you must want delete student"),
                                         actions: [
@@ -155,12 +155,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             );
                           },
-                          separatorBuilder: (context, index) => Divider(),
+                          separatorBuilder: (context, index) => const Divider(),
                           itemCount: studentValue.length,
                         );
                       } else {
                         return const Center(
-                          child: Text("No Value",style: TextStyle(
+                          child: Text("No Student Found!!",style: TextStyle(
                             color: Colors.red,
                             fontSize: 20
                           ),),
