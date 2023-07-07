@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:student_hive/model/student_model.dart';
-import 'package:student_hive/screen/home_screen.dart';
+import 'package:student_hive/screen/home/home_screen.dart';
 import 'package:student_hive/screen/student_details.dart';
 import 'package:image_picker/image_picker.dart';
 import '../functions/db_functions.dart';
