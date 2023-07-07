@@ -44,7 +44,7 @@ class _AddStudentState extends State<AddStudent> {
         _ageController.text = widget.studentDb!.age;
         _branchController.text = widget.studentDb!.branch;
         _markController.text = widget.studentDb!.mark;
-        widget.image=widget.studentDb!.image;
+        widget.image = widget.studentDb!.image;
       });
     } else {
       null;
@@ -331,57 +331,64 @@ class _AddStudentState extends State<AddStudent> {
                                   final branch = _branchController.text;
                                   final mark = _markController.text;
 
-                                  if (checkEditStudent == false) {
-                                    student.AddStudentData(StudentModel(
-                                      id: DateTime.now()
-                                          .millisecondsSinceEpoch
-                                          .toString(),
-                                      name: name,
-                                      age: age,
-                                      branch: branch,
-                                      mark: mark,
-                                      image: widget.image!
-                                    ));
-                                    student.messageToStudent(
-                                      message: "successfully add student",
-                                      color: Colors.green,
-                                      context: widget.scaffoldContext,
-                                    );
-                                    Navigator.of(context).pushAndRemoveUntil(
-                                        MaterialPageRoute(
-                                      builder: (ctx) {
-                                        return HomeScreen();
-                                      },
-                                    ), (route) => false);
-                                  } else {
-                                    student.updateStudent(
-                                      StudentModel(
-                                        id: widget.studentDb!.id,
-                                        name: name,
-                                        age: age,
-                                        branch: branch,
-                                        mark: mark,
-                                        image: widget.image!
-                                      ),
-                                      widget.studentDb!.id,
-                                    );
-                                    final newStudent = await student
-                                        .refresheData(widget.studentDb!.id);
-                                    // ignore: use_build_context_synchronously
-                                    student.messageToStudent(
-                                        message: "student update successfully ",
+                                  if (widget.image != null) {
+                                    if (checkEditStudent == false) {
+                                      student.AddStudentData(StudentModel(
+                                          id: DateTime.now()
+                                              .millisecondsSinceEpoch
+                                              .toString(),
+                                          name: name,
+                                          age: age,
+                                          branch: branch,
+                                          mark: mark,
+                                          image: widget.image!));
+                                      student.messageToStudent(
+                                        message: "successfully add student",
                                         color: Colors.green,
-                                        context: context);
-                                    // ignore: use_build_context_synchronously
-                                    Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                        builder: (ctx) => StudentDetails(
-                                          student: newStudent!,
+                                        context: widget.scaffoldContext,
+                                      );
+                                      Navigator.of(context).pushAndRemoveUntil(
+                                          MaterialPageRoute(
+                                        builder: (ctx) {
+                                          return HomeScreen();
+                                        },
+                                      ), (route) => false);
+                                    } else {
+                                      student.updateStudent(
+                                        StudentModel(
+                                            id: widget.studentDb!.id,
+                                            name: name,
+                                            age: age,
+                                            branch: branch,
+                                            mark: mark,
+                                            image: widget.image!),
+                                        widget.studentDb!.id,
+                                      );
+                                      final newStudent = await student
+                                          .refresheData(widget.studentDb!.id);
+                                      // ignore: use_build_context_synchronously
+                                      student.messageToStudent(
+                                          message:
+                                              "student update successfully ",
+                                          color: Colors.green,
+                                          context: context);
+                                      // ignore: use_build_context_synchronously
+                                      Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                          builder: (ctx) => StudentDetails(
+                                            student: newStudent!,
+                                          ),
                                         ),
-                                      ),
-                                    );
+                                      );
+                                    }
+                                  } else {
+                                  student.messageToStudent(
+                                    context: context,
+                                    message: "Must add profile image",
+                                    color: Colors.red,
+                                  );
                                   }
-                                } else {
+                                }else{
                                   null;
                                 }
                               },
