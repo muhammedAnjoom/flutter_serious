@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:student_hive/functions/db_functions.dart';
 import 'package:student_hive/model/student_model.dart';
@@ -43,10 +45,13 @@ class StudentDetails extends StatelessWidget {
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(8),
+                         Padding(
+                          padding: const EdgeInsets.all(8),
                           child: CircleAvatar(
                             radius: 40,
+                            backgroundImage: FileImage(
+                              File(student.image.toString())
+                            ),
                           ),
                         ),
                         const SizedBox(

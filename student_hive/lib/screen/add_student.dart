@@ -1,10 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:student_hive/model/student_model.dart';
 import 'package:student_hive/screen/home_screen.dart';
 import 'package:student_hive/screen/student_details.dart';
-
+import 'package:image_picker/image_picker.dart';
 import '../functions/db_functions.dart';
 
 class AddStudent extends StatefulWidget {
@@ -13,6 +15,7 @@ class AddStudent extends StatefulWidget {
   final StudentModel? studentDb;
   final scaffoldContext;
   final String heading;
+  String? image;
 
   @override
   State<AddStudent> createState() => _AddStudentState();
@@ -41,6 +44,7 @@ class _AddStudentState extends State<AddStudent> {
         _ageController.text = widget.studentDb!.age;
         _branchController.text = widget.studentDb!.branch;
         _markController.text = widget.studentDb!.mark;
+        widget.image=widget.studentDb!.image;
       });
     } else {
       null;
@@ -93,28 +97,56 @@ class _AddStudentState extends State<AddStudent> {
               ),
               Row(
                 children: [
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(10),
                     child: CircleAvatar(
+                      backgroundColor: widget.image == null
+                          ? Colors.blue
+                          : Colors.transparent,
                       radius: 40,
+                      backgroundImage: widget.image == null
+                          ? null
+                          : FileImage(File(widget.image.toString())),
                     ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 0.1,
+                  GestureDetector(
+                    onTap: () async {
+                      return showModalBottomSheet(
+                        context: context,
+                        builder: (context) => Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ListTile(
+                              leading: Icon(Icons.camera),
+                              title: Text("Camera"),
+                              onTap: () => pickImagProfile(ImageSource.camera),
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.image),
+                              title: Text("Image"),
+                              onTap: () => pickImagProfile(ImageSource.gallery),
+                            )
+                          ],
                         ),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(20))),
-                    child: const Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      child: Text(
-                        "Add Profile Picture",
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 0.1,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20))),
+                      child: const Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                        child: Text(
+                          "Add Profile Picture",
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
                       ),
                     ),
                   )
@@ -308,6 +340,7 @@ class _AddStudentState extends State<AddStudent> {
                                       age: age,
                                       branch: branch,
                                       mark: mark,
+                                      image: widget.image!
                                     ));
                                     student.messageToStudent(
                                       message: "successfully add student",
@@ -328,15 +361,18 @@ class _AddStudentState extends State<AddStudent> {
                                         age: age,
                                         branch: branch,
                                         mark: mark,
+                                        image: widget.image!
                                       ),
                                       widget.studentDb!.id,
                                     );
                                     final newStudent = await student
                                         .refresheData(widget.studentDb!.id);
+                                    // ignore: use_build_context_synchronously
                                     student.messageToStudent(
                                         message: "student update successfully ",
                                         color: Colors.green,
                                         context: context);
+                                    // ignore: use_build_context_synchronously
                                     Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                         builder: (ctx) => StudentDetails(
@@ -376,5 +412,15 @@ class _AddStudentState extends State<AddStudent> {
         ),
       ),
     );
+  }
+
+  Future<void> pickImagProfile(ImageSource source) async {
+    XFile? _image = await ImagePicker().pickImage(source: source);
+    if (_image == null) return;
+    final imageTempory = File(_image.path);
+    // imageTempory.readAsBytesSync();
+    setState(() {
+      widget.image = _image.path;
+    });
   }
 }

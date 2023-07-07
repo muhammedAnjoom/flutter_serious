@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:hive_flutter/adapters.dart';
 part 'student_model.g.dart';
 
@@ -13,6 +15,8 @@ class StudentModel {
   final String branch;
   @HiveField(4)
   final String mark;
+  @HiveField(5)
+  final String image;
 
   StudentModel({
     required this.id,
@@ -20,5 +24,6 @@ class StudentModel {
     required this.age,
     required this.branch,
     required this.mark,
+    required this.image
   });
 }

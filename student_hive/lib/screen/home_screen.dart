@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:student_hive/functions/db_functions.dart';
@@ -23,8 +25,14 @@ class _HomeScreenState extends State<HomeScreen> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
     studentFuction.getStudent();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    
     return Scaffold(
       key: _scaffoldKey,
       body: SafeArea(
@@ -92,10 +100,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ValueListenableBuilder(
                     valueListenable: studentValueNotifier,
                     builder: (context, studentValue, _) {
+
                       if (showResult == true || searchController.text.isEmpty) {
                         return ListView.separated(
                           itemBuilder: (context, index) {
                             final student = studentValue[index];
+                            // print(student.id);
                             return GestureDetector(
                               onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(
@@ -105,6 +115,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               child: ListTile(
+                                leading: CircleAvatar(
+                                  backgroundImage: FileImage(
+                                    File(student.image.toString())
+                                  ),
+                                ),
                                 title: Text(student.name),
                                 subtitle: Text(student.branch),
                                 trailing: IconButton(
