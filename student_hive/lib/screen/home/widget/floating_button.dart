@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../add_student.dart';
+import '../../addStudent/add_student.dart';
 
 class FloatingButton extends StatelessWidget {
   const FloatingButton({

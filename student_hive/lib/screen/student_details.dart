@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:student_hive/functions/db_functions.dart';
 import 'package:student_hive/model/student_model.dart';
-import 'package:student_hive/screen/add_student.dart';
+import 'package:student_hive/screen/addStudent/add_student.dart';
 
 class StudentDetails extends StatelessWidget {
   StudentDetails({super.key, required this.student});

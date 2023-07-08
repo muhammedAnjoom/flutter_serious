@@ -3,7 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:student_hive/screen/student_details.dart';
 
 import 'model/student_model.dart';
-import 'screen/add_student.dart';
+import 'screen/addStudent/add_student.dart';
 import 'screen/home/home_screen.dart';
 
 void main() async {
