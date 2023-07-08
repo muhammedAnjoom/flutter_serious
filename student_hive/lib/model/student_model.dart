@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:hive_flutter/adapters.dart';
 part 'student_model.g.dart';
 
+// student data model
 @HiveType(typeId: 1)
 class StudentModel {
   @HiveField(0)
