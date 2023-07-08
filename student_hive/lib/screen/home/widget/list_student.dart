@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import '../../../functions/db_functions.dart';
-import '../../student_details.dart';
+import '../../studentDetails/student_details.dart';
 
 class ListStudent extends StatelessWidget {
   ListStudent({

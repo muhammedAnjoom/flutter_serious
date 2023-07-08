@@ -5,7 +5,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import '../../../functions/db_functions.dart';
 import '../../../model/student_model.dart';
 import '../../home/home_screen.dart';
-import '../../student_details.dart';
+import '../../studentDetails/student_details.dart';
 
 class StudentForm extends StatelessWidget {
   StudentForm({
