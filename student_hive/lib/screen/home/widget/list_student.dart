@@ -1,9 +1,5 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
 import '../../../functions/db_functions.dart';
 import '../../student_details.dart';
 
@@ -20,15 +16,14 @@ class ListStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(showResult);
     return ValueListenableBuilder(
         valueListenable: studentValueNotifier,
         builder: (context, studentValue, _) {
-          if (showResult == true || searchController.text == "") {
+          if (showResult == true) {
             return ListView.separated(
               itemBuilder: (context, index) {
+                // student value get the valuenotifier
                 final student = studentValue[index];
-                // print(student.id);
                 return GestureDetector(
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(
@@ -39,6 +34,7 @@ class ListStudent extends StatelessWidget {
                   ),
                   child: ListTile(
                     leading: CircleAvatar(
+                      // xfile image to show in fileimage widget file type path to string
                       backgroundImage:
                           FileImage(File(student.image.toString())),
                     ),
@@ -48,6 +44,7 @@ class ListStudent extends StatelessWidget {
                       onPressed: () {
                         showDialog(
                           context: context,
+                          // alert of student delete
                           builder: (ctx) => AlertDialog(
                             title: Text("Delete ${student.name}"),
                             content: const Text("you must want delete student"),

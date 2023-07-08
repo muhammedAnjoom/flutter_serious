@@ -15,14 +15,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // student class object
   final studentFuction = Student();
-
-  final TextEditingController searchController = TextEditingController();
-
+  // searchController
+  final TextEditingController searchController = TextEditingController(); 
+  // scaffoldkey using the snackbar show context
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
+    // first run app get student data in student class
     studentFuction.getStudent();
     super.initState();
   }
@@ -60,10 +62,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   suffixIcon: IconButton(
                     onPressed: () {
+                      // clear the text in searchContrller
                       setState(() {
                         final value = searchController.text = "";
+                        // call searchStudent function and pass the null value and show the all student.
                         searchStudent(value);
                       });
+                      // enter the clear button the keyborad close
                       FocusManager.instance.primaryFocus?.unfocus();
                     },
                     icon: const Icon(
@@ -95,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20,
               ),
               Expanded(
+                // valueListenablebuilder using the update the widget in ListStudent
                 child: ValueListenableBuilder(
                     valueListenable: studentValueNotifier,
                     builder: (context, newValue, _) {
@@ -114,16 +120,21 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+   
+  //  search student in home 
   void searchStudent(String query) async {
+    // open hive box get all student data
     final _studentDB = await Hive.openBox<StudentModel>(STUDENT_DB);
     final suggestion = _studentDB.values.where((data) {
       final studentName = data.name.toLowerCase();
       final input = query.toLowerCase();
       return studentName.contains(input);
     }).toList();
+    // set showresult true then show the student list
     widget.showResult = true;
     studentValueNotifier.value = suggestion;
     if (suggestion.isEmpty) {
+      // suggestion is not match the student and show result is false
       widget.showResult = false;
     }
   }
