@@ -1,10 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:student_hive/model/student_model.dart';
-import 'package:student_hive/screen/addStudent/widget/pick_image.dart';
-import 'package:student_hive/screen/addStudent/widget/student_from.dart';
+
 import 'package:image_picker/image_picker.dart';
+import 'package:student_sqflite/screen/addStudent/widget/pick_image.dart';
+import 'package:student_sqflite/screen/addStudent/widget/student_from.dart';
 import '../../functions/db_functions.dart';
+import '../../model/student_model.dart';
 import '../widget/heading.dart';
 
 class AddStudent extends StatefulWidget {
