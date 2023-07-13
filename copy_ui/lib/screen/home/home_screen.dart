@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff5f5f5),
         appBar: AppBar(
           title: const Center(
             child: Text(
@@ -20,13 +21,14 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         body: SafeArea(
+          
           child: GridView.builder(
             padding: EdgeInsets.all(20),
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
               crossAxisSpacing: 20,
               mainAxisSpacing:20,
-              childAspectRatio: (1/.55)
+              childAspectRatio: (1/.8)
             ),
             itemBuilder: (context, index) {
               return  HomeCard();
@@ -45,16 +47,22 @@ class HomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
-      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(10))
+      ),
+      padding: const EdgeInsets.only(
+        top: 15,
+        left: 15
+      ),
       // color: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.network(
             "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Wikisource_speaker_icon.svg/1024px-Wikisource_speaker_icon.svg.png",
-            width: 20,
-            height: 20,
+            width: 40,
+            height: 40,
           ),
           const SizedBox(
             height: 10,

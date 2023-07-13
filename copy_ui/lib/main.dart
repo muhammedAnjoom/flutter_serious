@@ -13,11 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch(
         primarySwatch: Colors.blue,
-      ).copyWith(
-        background: Colors.grey[600],
-      )),
+      ),
       home: HomeScreen(),
     );
   }
