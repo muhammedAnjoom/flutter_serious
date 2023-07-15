@@ -10,15 +10,16 @@ class InforamtionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading:
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+        leading: IconButton(
+            onPressed: () => Navigator.of(context).pop(),
+            icon: const Icon(Icons.arrow_back)),
         title: const Center(child: Text("Additional Inforamation")),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(
-            children:  [
+            children: [
               const InforamtionList(
                 icon: Icons.share_outlined,
                 title: "Share Dukaan App",
@@ -62,15 +63,15 @@ class InforamtionScreen extends StatelessWidget {
               ),
               const Spacer(),
               Column(
-                children: const[
-                  Text("Version",style: TextStyle(
-                    color: Colors.grey,
-                    letterSpacing: 2
-                  ),),
-                  Text("2.4.2",style: TextStyle(
-                    letterSpacing: 1,
-                    fontSize:12
-                  ),)
+                children: const [
+                  Text(
+                    "Version",
+                    style: TextStyle(color: Colors.grey, letterSpacing: 2),
+                  ),
+                  Text(
+                    "2.4.2",
+                    style: TextStyle(letterSpacing: 1, fontSize: 12),
+                  )
                 ],
               )
             ],
@@ -80,7 +81,3 @@ class InforamtionScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-

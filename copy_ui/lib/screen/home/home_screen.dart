@@ -1,5 +1,6 @@
 import 'package:copy_ui/data/data.dart';
 import 'package:copy_ui/screen/home/widget/home_card.dart';
+import 'package:copy_ui/screen/inforamtion/infromation_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,7 +16,14 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: const Color(0xfff5f5f5),
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.menu))
+          IconButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (ctx) => const InforamtionScreen(),
+              ),
+            ),
+            icon: const Icon(Icons.menu),
+          )
         ],
         title: const Center(
           child: Text(
