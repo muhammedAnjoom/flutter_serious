@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class ButtonListInform extends StatelessWidget {
    ButtonListInform({
     super.key,
@@ -24,9 +25,9 @@ class ButtonListInform extends StatelessWidget {
         const Spacer(),
         ValueListenableBuilder(
           valueListenable: switchAction,
-          builder: (context,action,_) {
+          builder: (context,actionButton,_) {
             return Switch(
-              value: action,
+              value: actionButton,
               onChanged: (value) {
                 switchAction.value=value;
               },
