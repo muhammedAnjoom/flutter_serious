@@ -1,3 +1,4 @@
+import 'package:copy_ui/screen/catalogue/catalogue_screen.dart';
 import 'package:copy_ui/screen/home/home_screen.dart';
 import 'package:copy_ui/screen/inforamtion/infromation_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: CatalogueScreen(),
     );
   }
 }
