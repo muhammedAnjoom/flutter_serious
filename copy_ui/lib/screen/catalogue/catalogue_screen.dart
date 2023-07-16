@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'widget/prdouct_card.dart';
+
 class CatalogueScreen extends StatelessWidget {
   CatalogueScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
-      child: Scaffold(
+        length: 2,
+        child: Scaffold(
+          backgroundColor: const Color(0xfff5f5f5),
           appBar: AppBar(
             centerTitle: true,
             title: const Text("Catalogue"),
@@ -19,7 +22,7 @@ class CatalogueScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
                 Text(
-                  "cataeriors",
+                  "Categories",
                   style: TextStyle(fontSize: 20),
                 ),
               ],
@@ -33,9 +36,13 @@ class CatalogueScreen extends StatelessWidget {
                   ))
             ],
           ),
-          body: const TabBarView(
-            children: [Text("halo")],
-          )),
-    );
+          body: Column(
+            children: [
+              ProductCard()
+            ],
+          ),
+        ));
   }
 }
+
+
