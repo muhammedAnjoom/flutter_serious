@@ -3,12 +3,18 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
+    required this.name,
+    required this.price,
+    required this.image,
   });
+  final String name;
+  final String price;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15),
+      padding: const EdgeInsets.all(10),
       child: Container(
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -19,20 +25,18 @@ class ProductCard extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding:
-                  const EdgeInsets.only(left: 10, top: 10, bottom: 8),
+              padding: const EdgeInsets.only(left: 10, top: 10, bottom: 8),
               child: Row(
                 children: [
                   Container(
                     width: 100,
                     height: 100,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(
-                            "https://images.meesho.com/images/products/235776582/z6icx_512.webp"),
+                        image: NetworkImage(image),
                         fit: BoxFit.cover,
                       ),
-                      borderRadius: BorderRadius.all(
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(5),
                       ),
                     ),
@@ -43,53 +47,55 @@ class ProductCard extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
-                        "The Boys Tshirt",
-                        style: TextStyle(
-                            fontSize: 19,
-                            fontWeight: FontWeight.w400),
+                        name,
+                        style: const TextStyle(
+                            fontSize: 19, fontWeight: FontWeight.w400),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 3,
                       ),
-                      Text("1 piece"),
-                      SizedBox(
+                      const Text("1 piece"),
+                      const SizedBox(
                         height: 5,
                       ),
                       Text(
-                        "₹799",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800),
+                        "₹$price",
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 7,
                       ),
-                      Text(
+                      const Text(
                         "In stock",
                         style: TextStyle(color: Colors.green),
                       )
                     ],
                   ),
                   const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 5),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        const Icon(
-                          Icons.more_vert,
-                          color: Colors.grey,
-                        ),
-                        const SizedBox(
-                          height: 35,
-                        ),
-                        Switch(
-                          value: true,
-                          onChanged: (value) {},
-                        )
-                      ],
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Icon(
+                            Icons.more_vert,
+                            color: Colors.grey,
+                          ),
+                          const SizedBox(
+                            height: 35,
+                          ),
+                          Switch(
+                            value: true,
+                            onChanged: (value) {},
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],
@@ -113,9 +119,12 @@ class ProductCard extends StatelessWidget {
                 Text(
                   "Share Product",
                   style: TextStyle(fontSize: 18),
-                )
+                ),
               ],
-            )
+            ),
+            const SizedBox(
+              height: 10,
+            ),
           ],
         ),
       ),

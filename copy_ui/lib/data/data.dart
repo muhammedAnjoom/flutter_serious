@@ -45,4 +45,48 @@ class Data {
       visible: true,
     ),
   ];
+  List<ProductModel> productList = [
+    ProductModel(
+      name: "Couch Potato | Women",
+      price: "799",
+      image:
+          "https://ih1.redbubble.net/image.1211233096.0441/ssrco,tote,cotton,canvas_creme,flatlay,tall_portrait,750x1000-bg,f8f8f8.1.jpg",
+    ),
+    ProductModel(
+      name: "Couch Potato | Men",
+      price: "799",
+      image:
+          "https://static01.nyt.com/images/2019/07/22/fashion/mens-style/oakImage-1563825084859/oakImage-1563825084859-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+    ),
+    ProductModel(
+      name: "Muge | Explore",
+      price: "399",
+      image:
+          "https://m.media-amazon.com/images/I/61p5QpMrL7L._AC_UF894,1000_QL80_.jpg",
+    ),
+    ProductModel(
+      name: "Combo Sticker",
+      price: "699",
+      image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7bmo5Q7ITdcx2ITWi4LeBcwr7dQuhJWjJXQ&usqp=CAU",
+    ),
+    ProductModel(
+      name: "Muge | Anime",
+      price: "449",
+      image:
+          "https://m.media-amazon.com/images/I/71BPAvD4WtL.jpg",
+    ),
+    ProductModel(
+      name: "Shose | Nike",
+      price: "2999",
+      image:
+          "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/e9d41cd4-a2c5-4ca7-a3aa-f4bf597658d0/custom-nike-air-force-1-mid-by-you-shoes.png",
+    ),
+    ProductModel(
+      name: "Baggy Jeans | Men",
+      price: "1299",
+      image:
+          "https://images-cdn.ubuy.co.in/643010935dd84355bf2cfe97-men-s-baggy-jeans-2023-new-fashion-black.jpg",
+    ),
+  ];
 }
