@@ -3,6 +3,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
+import 'widget/text_row.dart';
+import 'widget/transaction_card.dart';
+
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
 
@@ -13,71 +16,41 @@ class PaymentScreen extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
-        title: Text("payments"),
+        title: const Text("payments"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.info_outline),
+          )
+        ],
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                width: MediaQuery.of(context).size.width,
-                height: 190,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.grey,
-                      width: 0.5,
-                    ),
-                    borderRadius: const BorderRadius.all(Radius.circular(5))),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Transaction Limit",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "A free limit up to which you will receive\nthe online payments directly in your bank",
-                      style: TextStyle(fontSize: 15, color: Colors.black54),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    LinearPercentIndicator(
-                      padding: const EdgeInsets.symmetric(),
-                      percent: 0.30,
-                      progressColor: Colors.blue,
-                      lineHeight: 6,
-                      barRadius: const Radius.circular(3),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "36,668 left out of ₹50,000",
-                      style: TextStyle(color: Colors.black54),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Expanded(
-                      child: SizedBox(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Increase limit"),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+            children: const [
+              TransactionCard(),
+              SizedBox(
+                height: 25,
+              ),
+              TextRow(
+                title: "Default Method",
+                trailing: "Online Payments",
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              TextRow(
+                title: "Payment Profile",
+                trailing: "Bank Account",
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Divider(
+                thickness: 1,
               )
             ],
           ),
@@ -86,3 +59,5 @@ class PaymentScreen extends StatelessWidget {
     );
   }
 }
+
+
