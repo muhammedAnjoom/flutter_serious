@@ -3,6 +3,8 @@ import 'package:copy_ui/screen/home/home_screen.dart';
 import 'package:copy_ui/screen/inforamtion/infromation_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'screen/payment/payment_screen.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: PaymentScreen(),
     );
   }
 }
