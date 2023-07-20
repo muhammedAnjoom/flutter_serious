@@ -30,27 +30,50 @@ class PaymentScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(
-            children: const [
-              TransactionCard(),
-              SizedBox(
+            children: [
+              const TransactionCard(),
+              const SizedBox(
                 height: 25,
               ),
-              TextRow(
+              const TextRow(
                 title: "Default Method",
                 trailing: "Online Payments",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              TextRow(
+              const TextRow(
                 title: "Payment Profile",
                 trailing: "Bank Account",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Divider(
+              const Divider(
                 thickness: 1,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: const [
+                  Text(
+                    "Payment Overview",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Life Time",
+                    style: TextStyle(color: Colors.black45),
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_down,
+                    color: Colors.black54,
+                  )
+                ],
               )
             ],
           ),
@@ -59,5 +82,3 @@ class PaymentScreen extends StatelessWidget {
     );
   }
 }
-
-
