@@ -93,7 +93,7 @@ class PaymentScreen extends StatelessWidget {
                       child: PaymentOveriewCard(
                     color: Colors.green,
                     title: "AMOUNT RECEIVED",
-                    amount: "13,332",
+                    amount: "13,331",
                   )),
                 ],
               ),

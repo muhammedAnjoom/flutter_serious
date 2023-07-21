@@ -1,0 +1,335 @@
+[33mcommit 48e3428bd0c1b18398152e37a148ad39ec4b2c1a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/ui[m[33m, [m[1;32mui[m[33m)[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Fri Jul 21 21:13:01 2023 +0530
+
+    day commit
+
+[33mcommit ef1937d9801352e1505bd79796771e640a15cbcd[m[33m ([m[1;31morigin/main[m[33m)[m
+Merge: ff928de e208307
+Author: Muhammed Anjoom <66232929+muhammedAnjoom@users.noreply.github.com>
+Date:   Thu Jul 20 06:26:30 2023 +0530
+
+    Merge pull request #6 from muhammedAnjoom/ui
+    
+    day commit
+
+[33mcommit e208307726d9a9b39bf4fec92844903a732e2b98[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Thu Jul 20 06:25:17 2023 +0530
+
+    day commit
+
+[33mcommit ff928de0837770276b6a13a837e4a6984ed6bde0[m
+Merge: a521ae9 249fa20
+Author: Muhammed Anjoom <66232929+muhammedAnjoom@users.noreply.github.com>
+Date:   Tue Jul 18 17:27:50 2023 +0530
+
+    Merge pull request #5 from muhammedAnjoom/ui
+    
+    UI
+
+[33mcommit 249fa20eb8ecaf09dc87c66080eace58179e5d64[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Tue Jul 18 17:24:45 2023 +0530
+
+    payment screen text row add
+
+[33mcommit 59288e623442b63878a77671d86229fb4860bb60[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Tue Jul 18 14:11:06 2023 +0530
+
+    payment screen start and add transaction card
+
+[33mcommit a521ae910b34d560f1efec2b28b73787ab9c2746[m
+Merge: 84cbd77 9f9c8e6
+Author: Muhammed Anjoom <66232929+muhammedAnjoom@users.noreply.github.com>
+Date:   Mon Jul 17 21:57:03 2023 +0530
+
+    Merge pull request #4 from muhammedAnjoom/ui
+    
+    day commit
+
+[33mcommit 9f9c8e6ba3cb7d8774c2ec8d71251914d05c1835[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Mon Jul 17 21:48:27 2023 +0530
+
+    day commit
+
+[33mcommit 84cbd77701a251adc992cc014b35aa4a95a349da[m
+Merge: 7441e51 b442d72
+Author: Muhammed Anjoom <66232929+muhammedAnjoom@users.noreply.github.com>
+Date:   Sun Jul 16 09:08:37 2023 +0530
+
+    Merge pull request #3 from muhammedAnjoom/ui
+    
+    UI
+
+[33mcommit b442d7225c96915f1669616711ce1ae883acaa6a[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sun Jul 16 09:06:52 2023 +0530
+
+    catalog page complete
+
+[33mcommit d2d0bb21ad91b5ecac854cca1e39862b58fda043[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sun Jul 16 08:34:43 2023 +0530
+
+    product card
+
+[33mcommit 4cf4ea194d6e8cb3648592fa94ec0dcb5d367fed[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sun Jul 16 07:40:13 2023 +0530
+
+    tab bar in catalogue page
+
+[33mcommit 40b39b0815250810a4a6609b552453f343d2081d[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jul 15 09:22:19 2023 +0530
+
+    check the merge
+
+[33mcommit 7441e51eae2409f240634ed7edfab4763583d253[m
+Merge: 90eedcb 658d215
+Author: Muhammed Anjoom <66232929+muhammedAnjoom@users.noreply.github.com>
+Date:   Sat Jul 15 09:19:01 2023 +0530
+
+    Merge pull request #2 from muhammedAnjoom/ui
+    
+    UI
+
+[33mcommit 658d215f16ee61269ebed4c7150df4446fb41905[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jul 15 09:15:21 2023 +0530
+
+    connect the homeScreen in infromation screen
+
+[33mcommit 3db46f88a7c7bcb199ebb7852f9cef316ceb101f[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jul 15 09:07:47 2023 +0530
+
+    additional Information screen complete
+
+[33mcommit 90eedcb0b5a812200196fa75955749d690406269[m
+Merge: 4706b1f 6bcd2a9
+Author: Muhammed Anjoom <66232929+muhammedAnjoom@users.noreply.github.com>
+Date:   Fri Jul 14 21:09:20 2023 +0530
+
+    Merge pull request #1 from muhammedAnjoom/ui
+    
+    UI
+
+[33mcommit 6bcd2a9a9e624621a40ab36257052bc52d437a94[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Fri Jul 14 21:05:24 2023 +0530
+
+    home page complete
+
+[33mcommit 192b70c567aa631a77153e0ac339d59355a12b4d[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Thu Jul 13 20:48:36 2023 +0530
+
+    day commit
+
+[33mcommit 9a0575ef5314612f98c8f9ec5cee5e4dbd4b9f40[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Wed Jul 12 21:13:34 2023 +0530
+
+    new project start
+
+[33mcommit 4706b1ff6422b6587d2d27525b5425f73658b88f[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sun Jul 9 11:38:52 2023 +0530
+
+    student app covert to data store in sqflite
+
+[33mcommit e3c8867aebd72440e67b19c7466c9de33c20cc14[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jul 8 07:09:58 2023 +0530
+
+    successfully completed project
+
+[33mcommit 434088b71da70e678f8e5eaa2c5afd3572740d5b[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jul 8 06:52:58 2023 +0530
+
+    all documention add
+
+[33mcommit a1e15618c467f19df2daee532e97c879ce6c0131[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jul 8 06:47:34 2023 +0530
+
+    extract widget in student Details
+
+[33mcommit bf4c34a10979cf6207f1b2532fa9d92252712f89[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jul 8 06:36:17 2023 +0530
+
+    extract widget into add student
+
+[33mcommit 310204e3139f63e732f9520a088f33aff3120eea[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jul 8 05:35:39 2023 +0530
+
+    documention add in home
+
+[33mcommit fe30777733f62fc1740b25ad5c44451ec9a472e0[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jul 8 05:25:29 2023 +0530
+
+    home widget extract
+
+[33mcommit 291dae132796c2c94ee3cb1a91a33ee5221345cd[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Fri Jul 7 16:49:27 2023 +0530
+
+    all featers add
+
+[33mcommit 61c8ef699f774a2767c9d2e76974ef9812bdf1c5[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Fri Jul 7 16:38:37 2023 +0530
+
+    profile image add and update
+
+[33mcommit bc5d64bf1a60821284868f0607d8f99a6cb30085[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Wed Jul 5 05:50:20 2023 +0530
+
+    project half completed
+
+[33mcommit 3ead75112db28cb0dcf14b45dcaecdcf8019b287[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Mon Jul 3 21:09:25 2023 +0530
+
+    search student
+
+[33mcommit 138647ed8a1afcd13541a1c4ca4cd94b202e845b[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Fri Jun 30 12:19:07 2023 +0530
+
+    updation student and show snakbar
+
+[33mcommit 2ed94e1f36ae8a53113a34a11dc51807780fead2[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Fri Jun 30 11:52:34 2023 +0530
+
+    value add in textfield
+
+[33mcommit 33fe005f7c0f2bdbe25593f02e930c48ed97b55e[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Wed Jun 28 18:42:38 2023 +0530
+
+    alertDialog and snakbar add in delete
+
+[33mcommit fac212d674da27314896dc744358244520797ede[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Wed Jun 28 07:03:43 2023 +0530
+
+    add student and show detalis
+
+[33mcommit 6aef3ad72a257c20a472dd055c29ea519470db4c[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Wed Jun 28 05:08:47 2023 +0530
+
+    validation add student
+
+[33mcommit b45f82994fb247fe6e61226aa79a214876158d08[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Mon Jun 26 21:53:42 2023 +0530
+
+    student details
+
+[33mcommit 611caa310e4c81a0db31154a9bf0b7c9008a8a7d[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Mon Jun 26 05:54:00 2023 +0530
+
+    home screen ui
+
+[33mcommit 47f1ea9d81bb23b2d1304dbeab7b06c5e931bf77[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sun Jun 25 11:13:00 2023 +0530
+
+    student mangement using hive project start
+
+[33mcommit 3f27315f267549e8fa01b7102ecc082bb14341d0[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Sat Jun 24 05:39:29 2023 +0530
+
+    ValueNotifier add and convert statefull to stateless
+
+[33mcommit 168cdb9873141089515b5d412fbc40034be5aeed[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Thu Jun 22 06:32:26 2023 +0530
+
+    sharedPreferences added
+
+[33mcommit 417892dbb6c04155a0ba2eb54792be223bac94fd[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Thu Jun 22 06:01:56 2023 +0530
+
+    validation
+
+[33mcommit a40bd8e2fc6a99fa40c486c6509ad706fc874942[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Wed Jun 21 06:32:42 2023 +0530
+
+    home scroll view fixed
+
+[33mcommit ba000f8779b6bb18aff8f665b101394b5f18f9ed[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Wed Jun 21 06:19:54 2023 +0530
+
+    home page complete
+
+[33mcommit c3a3e97c3d5c0fcbd74e194248bce1bfd85503be[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Tue Jun 20 07:38:13 2023 +0530
+
+    login page completd
+
+[33mcommit 02ed49fa28cb37923ec28ddd2ae477ffb33c7a5a[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Tue Jun 20 06:21:32 2023 +0530
+
+    landing page complete
+
+[33mcommit b64a4eb446ae858a2df439ca73802f0a08d9baa4[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Mon Jun 19 13:49:49 2023 +0530
+
+    validation and alert messages
+
+[33mcommit efd3f7e543057ebf77e7c27c419c8e6fcea8dd75[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Mon Jun 19 06:34:50 2023 +0530
+
+    check username and login and logout
+
+[33mcommit d23c2786b1d3cfa32d80d6fd9980a128b2434769[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Mon Jun 19 05:06:45 2023 +0530
+
+    sharedPreferences add
+
+[33mcommit ba8b975bd9ecc0e08fc3e193ae7848da488faef6[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Fri Jun 16 21:01:35 2023 +0530
+
+    flutter page navigator
+
+[33mcommit e26dda88d9fd6bbe6206380baf25efbea5310f65[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Thu Jun 15 21:15:44 2023 +0530
+
+    statefull widget
+
+[33mcommit 04a0524f873ec3110c325d1303555273631ec0cd[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Tue Jun 13 22:38:06 2023 +0530
+
+    flutter buttons
+
+[33mcommit f98d0339642567b5cd5852f983eaba9cb690b402[m
+Author: muhammedAnjoom <anjoompa42003@gmail.com>
+Date:   Mon Jun 12 20:34:05 2023 +0530
+
+    flutter start basics screen
