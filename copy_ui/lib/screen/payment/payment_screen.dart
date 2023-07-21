@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-
+import 'widget/payment_oveview_card..dart';
+import 'widget/roundRow_text.dart';
 import 'widget/text_row.dart';
 import 'widget/transaction_card.dart';
 
@@ -30,6 +28,7 @@ class PaymentScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const TransactionCard(),
               const SizedBox(
@@ -74,6 +73,69 @@ class PaymentScreen extends StatelessWidget {
                     color: Colors.black54,
                   )
                 ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: const [
+                  Expanded(
+                    child: PaymentOveriewCard(
+                      color: Colors.orange,
+                      title: "AMOUNT ON HOLD",
+                      amount: "0",
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                      child: PaymentOveriewCard(
+                    color: Colors.green,
+                    title: "AMOUNT RECEIVED",
+                    amount: "13,332",
+                  )),
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                "Transaction",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: const [
+                  Expanded(
+                    child: RoundRow(
+                      title: "On hold",
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Expanded(
+                    child: RoundRow(
+                      colorBackground: Colors.blue,
+                      colorText: Colors.white,
+                      title: "Payouts(15)",
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Expanded(
+                    child: RoundRow(
+                      title: "Refunds",
+                    ),
+                  )
+                ],
               )
             ],
           ),
@@ -82,3 +144,5 @@ class PaymentScreen extends StatelessWidget {
     );
   }
 }
+
+
