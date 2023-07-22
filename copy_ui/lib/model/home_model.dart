@@ -19,3 +19,16 @@ class ProductModel {
     required this.image,
   });
 }
+
+class PayoutsModel {
+  final String orderId;
+  final String dateTime;
+  final String image;
+  final String price;
+  PayoutsModel({
+    required this.orderId,
+    required this.dateTime,
+    required this.image,
+    required this.price,
+  });
+}
