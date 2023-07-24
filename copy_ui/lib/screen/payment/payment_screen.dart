@@ -157,7 +157,7 @@ class PaymentScreen extends StatelessWidget {
                       price: product.price,
                     );
                   },
-                  separatorBuilder: (context, index) => Divider(),
+                  separatorBuilder: (context, index) => const Divider(),
                   itemCount: data.payoutList.length,
                 ),
               ],
