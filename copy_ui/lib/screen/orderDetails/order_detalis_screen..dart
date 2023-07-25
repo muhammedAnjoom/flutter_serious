@@ -1,6 +1,10 @@
+import 'package:copy_ui/screen/orderDetails/widget/amount_continer.dart';
+import 'package:copy_ui/screen/orderDetails/widget/product_detalis_continer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+
+import 'widget/date_detalis_container.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
   const OrderDetailsScreen({super.key});
@@ -24,141 +28,37 @@ class OrderDetailsScreen extends StatelessWidget {
           padding: const EdgeInsets.all(15),
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  children: const [
-                    Text(
-                      "May 31,05:42 PM",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    Spacer(),
-                    CircleAvatar(
-                      radius: 6,
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      "Delivered",
-                      style: TextStyle(fontSize: 16, color: Colors.black38),
-                    )
-                  ],
-                ),
+              const DateDetailsContainer(),
+              const Divider(
+                thickness: 1,
               ),
+              const ProductDetailsContainer(),
+              const Divider(
+                thickness: 1,
+              ),
+              const AmountContainer(),
               const Divider(
                 thickness: 1,
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Column(
                   children: [
                     Row(
-                      children: const [
-                        Text(
-                          "1 ITEM",
-                          style: TextStyle(fontSize: 16, color: Colors.black38),
-                        ),
-                        Spacer(),
-                        Icon(
-                          Icons.receipt_outlined,
-                          color: Colors.blue,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "RECEIPT",
-                          style: TextStyle(fontSize: 14, color: Colors.blue),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: 70,
-                              height: 70,
-                              decoration: const BoxDecoration(
-                                // border: Border(),
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                    "https://img.fruugo.com/product/4/39/147028394_max.jpg",
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        Column(
-                          // mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Explore | Men | Navy Blue",
-                              style: TextStyle(fontSize: 18),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const Text("1 piece"),
-                            const Text(
-                              "Size: XL",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black45,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                      color: Colors.blue.withOpacity(0.3),
-                                      border: Border.all(color: Colors.blue)),
-                                  child: Text(
-                                    "1",
-                                    style: TextStyle(color: Colors.blue[700]),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const Text(
-                                  "x ₹799",
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                        const Spacer(),
-                        const Text(
-                          "₹799",
-                          style: TextStyle(fontSize: 16),
-                        )
+                        Text("CUSTOMER DETAILS",style: TextStyle(
+                          color: Colors.black38
+                        ),),
+                        Spacer(),
+                        TextButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.share_outlined,size: 20,),
+                            label: Text("SHARE"))
                       ],
                     )
                   ],
                 ),
-              ),
-              const Divider(
-                thickness: 1,
-              ),
+              )
             ],
           ),
         ),
