@@ -52,7 +52,7 @@ class DukkanScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                      margin: EdgeInsets.symmetric(horizontal: 15,vertical: 8),
                       height: 180,
                       // width: 100,
                       color: Colors.red,
