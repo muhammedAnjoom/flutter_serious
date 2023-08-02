@@ -68,9 +68,9 @@ class DukkanScreen extends StatelessWidget {
                         borderRadius: BorderRadius.all(
                           Radius.circular(10),
                         ),
-                        // boxShadow: [
-                        //   BoxShadow(blurRadius: 1.5, color: Colors.black26)
-                        // ],
+                        boxShadow: [
+                          BoxShadow(blurRadius: 1.5, color: Colors.black26)
+                        ],
                       ),
                       child: Column(
                         children: const [
