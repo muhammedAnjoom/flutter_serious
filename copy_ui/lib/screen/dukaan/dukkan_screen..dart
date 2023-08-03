@@ -119,12 +119,36 @@ class DukkanScreen extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(left: 15, top: 20),
                 child: Column(
-                  children: const [
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children:  [
                     Text(
                       "Features",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                     ),
+                    Row(
+                      children: [
+                        Container(
+                          width: 70,
+                          height: 65,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.blue,width: 1.8),
+                            shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 15,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Custom domain name",style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500
+                            ),),
+                            Text("Get your own custom domain and build\nyour brand on internet.")
+                          ],
+                        )
+                      ],
+                    )
                   ],
                 ),
               )
