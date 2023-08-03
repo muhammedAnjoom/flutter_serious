@@ -12,6 +12,7 @@ class DukkanScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
                 alignment: Alignment.bottomCenter,
@@ -75,13 +76,17 @@ class DukkanScreen extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          const SizedBox(height: 15,),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           Image.network(
                             "https://mydukaan.io/blog/wp-content/uploads/2021/04/dukaan_blog.png",
                             height: 75,
                             fit: BoxFit.cover,
                           ),
-                          const SizedBox(height: 14,),
+                          const SizedBox(
+                            height: 14,
+                          ),
                           const Text(
                             "Get Dukaan Premium for just",
                             style: TextStyle(
@@ -92,7 +97,9 @@ class DukkanScreen extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.w400),
                           ),
-                          const SizedBox(height: 8,),
+                          const SizedBox(
+                            height: 8,
+                          ),
                           const Text(
                             "All the advanced features for scaling your",
                             style:
@@ -108,6 +115,18 @@ class DukkanScreen extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 15, top: 20),
+                child: Column(
+                  children: const [
+                    Text(
+                      "Features",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
               )
             ],
           ),
