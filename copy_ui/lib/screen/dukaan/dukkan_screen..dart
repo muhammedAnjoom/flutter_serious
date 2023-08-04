@@ -129,7 +129,7 @@ class DukkanScreen extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          width: 70,
+                          width: 66,
                           height: 65,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.blue,width: 1.8),
