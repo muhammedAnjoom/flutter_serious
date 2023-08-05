@@ -195,7 +195,28 @@ class Data {
       price: "524.25",
     ),
   ];
-  List<FeatureModel> FeatureListData = [
-    
+  List<FeatureModel> featureListData = [
+    FeatureModel(
+      image: "assets/image/world.png",
+      title: "Custom domain name",
+      subtitle: "Get your own domain and build\nyour brand on the internet.",
+    ),
+    FeatureModel(
+      image: "assets/image/verified.png",
+      title: "Verified seller badge",
+      subtitle:
+          "Get green verified badge under your\nstore name and build trust.",
+    ),
+    FeatureModel(
+      image: "assets/image/notebook-computer.png",
+      title: "Dukaan for PC",
+      subtitle: "Access all the exclusive premium\nfeatures on Dukaan for PC.",
+    ),
+    FeatureModel(
+      image: "assets/image/headphones.png",
+      title: "Priority support",
+      subtitle:
+          "Get your questions resolved with our\npriority customer support.",
+    )
   ];
 }
