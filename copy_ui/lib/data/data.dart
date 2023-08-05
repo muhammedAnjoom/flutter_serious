@@ -195,4 +195,7 @@ class Data {
       price: "524.25",
     ),
   ];
+  List<FeatureModel> FeatureListData = [
+    
+  ];
 }

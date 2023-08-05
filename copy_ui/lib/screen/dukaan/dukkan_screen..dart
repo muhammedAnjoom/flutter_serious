@@ -126,29 +126,8 @@ class DukkanScreen extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Row(
-                      children: [
-                        Container(
-                          width: 66,
-                          height: 65,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.blue,width: 1.8),
-                            shape: BoxShape.circle
-                          ),
-                        ),
-                        SizedBox(width: 15,),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Custom domain name",style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500
-                            ),),
-                            Text("Get your own custom domain and build\nyour brand on internet.")
-                          ],
-                        )
-                      ],
-                    )
+                    SizedBox(height: 14,),
+                    FeatureList()
                   ],
                 ),
               )
@@ -156,6 +135,46 @@ class DukkanScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class FeatureList extends StatelessWidget {
+  const FeatureList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          width: 55,
+          height: 55,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.blue,width: 1.8),
+            shape: BoxShape.circle
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Image.asset("assets/image/world.png",color: Colors.blue,),
+          ),
+        ),
+        SizedBox(width: 15,),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Custom domain name",style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500
+            ),),
+            Text("Get your own custom domain and build\nyour brand on internet.",style: TextStyle(
+              color: Colors.black38 
+            ),)
+          ],
+        ),
+        SizedBox(height: 8,),
+      ],
     );
   }
 }

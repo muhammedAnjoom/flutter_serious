@@ -32,3 +32,14 @@ class PayoutsModel {
     required this.price,
   });
 }
+
+class FeatureModel {
+  final String image;
+  final String title;
+  final String subtitle;
+  FeatureModel({
+    required this.image,
+    required this.title,
+    required this.subtitle,
+  });
+}
