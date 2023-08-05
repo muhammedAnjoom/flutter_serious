@@ -1,10 +1,13 @@
+import 'package:copy_ui/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DukkanScreen extends StatelessWidget {
-  const DukkanScreen({super.key});
+  DukkanScreen({super.key});
+
+  final data = Data();
 
   @override
   Widget build(BuildContext context) {
@@ -120,14 +123,32 @@ class DukkanScreen extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 15, top: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children:  [
-                    Text(
+                  children: [
+                    const Text(
                       "Features",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    SizedBox(height: 14,),
-                    FeatureList()
+                    const SizedBox(
+                      height: 14,
+                    ),
+                    ListView.separated(
+                      shrinkWrap: true,
+                      itemCount: data.featureListData.length,
+                      itemBuilder: (context, index) {
+                        final listFeature = data.featureListData[index];
+                        return FeatureList(
+                          image: listFeature.image,
+                          title: listFeature.title,
+                          subtitle: listFeature.subtitle,
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(
+                          height: 13,
+                        );
+                      },
+                    )
                   ],
                 ),
               )
@@ -142,7 +163,14 @@ class DukkanScreen extends StatelessWidget {
 class FeatureList extends StatelessWidget {
   const FeatureList({
     super.key,
+    required this.image,
+    required this.title,
+    required this.subtitle,
   });
+
+  final String image;
+  final String title;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -152,28 +180,36 @@ class FeatureList extends StatelessWidget {
           width: 55,
           height: 55,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.blue,width: 1.8),
-            shape: BoxShape.circle
-          ),
+              border: Border.all(color: Colors.blue, width: 1.8),
+              shape: BoxShape.circle),
           child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Image.asset("assets/image/world.png",color: Colors.blue,),
+            padding: const EdgeInsets.all(12),
+            child: Image.asset(
+              image,
+              color: Colors.blue,
+            ),
           ),
         ),
-        SizedBox(width: 15,),
+        const SizedBox(
+          width: 15,
+        ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Custom domain name",style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500
-            ),),
-            Text("Get your own custom domain and build\nyour brand on internet.",style: TextStyle(
-              color: Colors.black38 
-            ),)
+            Text(
+              title,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            Text(
+              subtitle,
+              style: const TextStyle(
+                color: Colors.black38,
+                height: 1.3,
+                fontSize: 15,
+              ),
+            )
           ],
         ),
-        SizedBox(height: 8,),
       ],
     );
   }
