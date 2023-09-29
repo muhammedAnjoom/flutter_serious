@@ -1,16 +1,19 @@
 # copy_ui
 
-A new Flutter project.
+I am happy to share with you my ui challege in flutter app.
+i used switch,svgpicture,LinearProgressIndicator widgets etc.
 
-## Getting Started
+## ScreenShots
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<table>
+    <tr>
+        <td><img src="assets/image/Screenshot_1.png" width="300" /></td>
+        <td><img src="assets/image/Screenshot_2.png" width="300" /></td>
+        <td><img src="assets/image/Screenshot_3.png" width="300" /></td>
+    </tr>
+    <tr>
+        <td><img src="assets/image/Screenshot_4.png" width="300" /></td>
+        <td><img src="assets/image/Screenshot_5.png" width="300" /></td>
+        <td><img src="assets/image/Screenshot_6.png" width="300" /></td>
+    </tr>
+</table>
